@@ -5,6 +5,7 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const MongoStore = require("connect-mongo");
 
 const { register } = require("./actions/register");
 const { login } = require("./actions/login");
@@ -34,8 +35,11 @@ app.use(
 app.use(
   session({
     secret: "secretcode",
-    reseve: true,
+    resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: "mongodb+srv://praktyki:praktyki2021@development.wtktz.mongodb.net/sneakers-release",
+    }),
   })
 );
 app.use(cookieParser("secretcode"));
