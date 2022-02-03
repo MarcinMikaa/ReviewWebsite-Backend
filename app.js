@@ -9,6 +9,8 @@ const MongoStore = require("connect-mongo");
 
 const { register } = require("./actions/register");
 const { login } = require("./actions/login");
+const { logout } = require("./actions/logout");
+const { getUser } = require("./actions/get-user");
 
 const app = express();
 
@@ -49,6 +51,8 @@ require("./passportConfig")(passport);
 
 app.post("/register", register);
 app.post("/login", login);
+app.get("/logout", logout);
+app.get("/user", getUser);
 
 app.listen(4000, () => {
   console.log("Server has started");
