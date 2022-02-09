@@ -11,6 +11,7 @@ const { register } = require("./actions/register");
 const { login } = require("./actions/login");
 const { logout } = require("./actions/logout");
 const { getUser } = require("./actions/get-user");
+const { addNewReview } = require("./actions/add-new-review");
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.post("/register", register);
 app.post("/login", login);
 app.get("/logout", logout);
 app.get("/user", getUser);
+app.post("/add-review", addNewReview);
 
 app.listen(4000, () => {
   console.log("Server has started");
