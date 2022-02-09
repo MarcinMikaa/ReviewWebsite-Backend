@@ -17,3 +17,5 @@ const addNewReview = (req, res) => {
     }
   });
 };
+
+module.exports = {addNewReview};
