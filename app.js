@@ -12,6 +12,7 @@ const { login } = require("./actions/login");
 const { logout } = require("./actions/logout");
 const { getUser } = require("./actions/get-user");
 const { addNewReview } = require("./actions/add-new-review");
+const { getReviews } = require("./actions/get-reviews");
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use(
     }),
   })
 );
+
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -54,6 +56,8 @@ app.post("/register", register);
 app.post("/login", login);
 app.get("/logout", logout);
 app.get("/user", getUser);
+
+app.get("/reviews", getReviews);
 app.post("/add-review", addNewReview);
 
 app.listen(4000, () => {
