@@ -8,6 +8,10 @@ const addNewReview = (req, res) => {
       const newReview = new Review({
         title: req.body.title,
         content: req.body.content,
+        director: req.body.director,
+        scenario: req.body.scenario,
+        genre: req.body.genre,
+        production: req.body.production,
         date: req.body.date,
         grade: req.body.grade,
         url: req.body.url,
@@ -18,4 +22,4 @@ const addNewReview = (req, res) => {
   });
 };
 
-module.exports = {addNewReview};
+module.exports = { addNewReview };
