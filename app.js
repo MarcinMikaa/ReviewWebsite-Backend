@@ -13,6 +13,8 @@ const { logout } = require("./actions/logout");
 const { getUser } = require("./actions/get-user");
 const { addNewReview } = require("./actions/add-new-review");
 const { getReviews } = require("./actions/get-reviews");
+const { addNewComment } = require("./actions/add-new-comment");
+const { getComments } = require("./actions/get-comments");
 
 const app = express();
 
@@ -59,6 +61,9 @@ app.get("/user", getUser);
 
 app.get("/reviews", getReviews);
 app.post("/add-review", addNewReview);
+
+app.get("/comments", getComments);
+app.post("/add-comment", addNewComment);
 
 app.listen(4000, () => {
   console.log("Server has started");
